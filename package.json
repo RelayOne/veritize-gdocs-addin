@@ -1,0 +1,37 @@
+{
+  "name": "veritize-gdocs-addin",
+  "version": "0.1.0",
+  "description": "Google Workspace Add-on (Docs) for Veritize content verification.",
+  "private": true,
+  "license": "FSL-1.1-Apache-2.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "push": "npm run build && clasp push",
+    "push:dev": "npm run build && clasp --config .clasp.dev.json push",
+    "push:staging": "npm run build && clasp --config .clasp.staging.json push",
+    "push:prod": "npm run build && clasp --config .clasp.prod.json push",
+    "deploy:dev": "npm run push:dev && clasp --config .clasp.dev.json deploy --description \"dev\"",
+    "deploy:staging": "npm run push:staging && clasp --config .clasp.staging.json deploy --description \"staging\"",
+    "deploy:prod": "npm run push:prod && clasp --config .clasp.prod.json deploy --description \"prod\""
+  },
+  "devDependencies": {
+    "@google/clasp": "^2.4.2",
+    "@types/google-apps-script": "^1.0.97",
+    "@types/node": "^20.11.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "gas-webpack-plugin": "^2.6.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

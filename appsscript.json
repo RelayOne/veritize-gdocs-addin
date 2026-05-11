@@ -1,0 +1,40 @@
+{
+  "timeZone": "America/Toronto",
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "addOns": {
+    "common": {
+      "name": "Veritize",
+      "logoUrl": "https://app.veritize.app/static/icon-72.png",
+      "useLocaleFromApp": true,
+      "homepageTrigger": {
+        "runFunction": "buildHomepage",
+        "enabled": true
+      }
+    },
+    "docs": {
+      "homepageTrigger": {
+        "runFunction": "buildHomepage",
+        "enabled": true
+      },
+      "onFileScopeGrantedTrigger": {
+        "runFunction": "onFileScopeGranted"
+      }
+    }
+  },
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/documents.currentonly",
+    "https://www.googleapis.com/auth/script.external_request",
+    "https://www.googleapis.com/auth/script.locale",
+    "https://www.googleapis.com/auth/script.scriptapp",
+    "https://www.googleapis.com/auth/userinfo.email"
+  ],
+  "urlFetchWhitelist": [
+    "https://api.veritize.app/",
+    "https://app.veritize.app/",
+    "https://api.dev.veritize.app/",
+    "https://app.dev.veritize.app/",
+    "https://api.staging.veritize.app/",
+    "https://app.staging.veritize.app/"
+  ]
+}
